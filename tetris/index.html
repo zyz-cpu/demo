@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯方块</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>俄罗斯方块</h1>
+        </div>
+        
+        <div class="game-main">
+            <div class="left-panel">
+                <div class="next-piece">
+                    <h3>下一个</h3>
+                    <canvas id="nextCanvas" width="150" height="150"></canvas>
+                </div>
+                
+                <div class="score-panel">
+                    <div class="score-item">
+                        <span class="label">分数</span>
+                        <span class="value" id="score">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">等级</span>
+                        <span class="value" id="level">1</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">消行</span>
+                        <span class="value" id="lines">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-board">
+                <canvas id="gameCanvas" width="300" height="600"></canvas>
+            </div>
+            
+            <div class="right-panel">
+                <div class="music-control">
+                    <h3>音乐控制</h3>
+                    <button id="musicBtn">🎵 播放音乐</button>
+                    <div class="volume-control">
+                        <span class="volume-label">🔊</span>
+                        <input type="range" id="volumeSlider" min="0" max="100" value="50">
+                        <span class="volume-value" id="volumeValue">50%</span>
+                    </div>
+                    <button id="muteBtn">🔇 静音</button>
+                </div>
+
+                <div class="controls">
+                    <h3>操作说明</h3>
+                    <div class="control-item">← → 移动</div>
+                    <div class="control-item">↑ 旋转</div>
+                    <div class="control-item">↓ 加速</div>
+                    <div class="control-item">空格 硬降</div>
+                    <div class="control-item">P 暂停</div>
+                </div>
+                
+                <div class="buttons">
+                    <button id="startBtn">开始游戏</button>
+                    <button id="pauseBtn">暂停</button>
+                    <button id="resetBtn">重新开始</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-over" id="gameOver">
+            <div class="game-over-content">
+                <h2>游戏结束</h2>
+                <p>最终得分: <span id="finalScore">0</span></p>
+                <button id="restartBtn">再来一局</button>
+            </div>
+        </div>
+
+        <audio id="bgMusic" loop>
+            <source src="bgm.mp3" type="audio/mpeg">
+            <source src="bgm.wav" type="audio/wav">
+        </audio>
+        
+        <script src="game.js"></script>
+    </body>
+</html>
